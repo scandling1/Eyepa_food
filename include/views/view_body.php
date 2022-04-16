@@ -1,4 +1,5 @@
 <?php
+
   class ViewBody{
     var $results;
     var $assets_url = ASSETSURL;
@@ -15,7 +16,7 @@
        $this->view_dbs = $view_dbs;
     }
 
-    function login(){
+    public function login(){
     
         echo'<div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
         <div class="card card-primary">
@@ -69,7 +70,7 @@
   
     }
 
-    function alert2($alert){
+    public function alert2($alert){
       echo'<div class="alert alert-success alert-dismissible show fade">
                <div class="alert-body">
                  <button class="close" data-dismiss="alert">
@@ -81,7 +82,7 @@
                ';
     }
 
-    function alert($alert){
+    public function alert($alert){
       echo'<div class="alert alert-danger alert-dismissible show fade">
                <div class="alert-body">
                  <button class="close" data-dismiss="alert">
@@ -93,7 +94,7 @@
                ';
     }
 
-    function index_bcnr(){
+    public function index_bcnr(){
       echo'<div class="row ">
       <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="card">
@@ -187,7 +188,7 @@
      </div>';
     }
 
-    function index_revenueChart(){
+    public function index_revenueChart(){
       echo'<div class="row">
       <div class="col-12 col-sm-12 col-lg-12">
         <div class="card ">
@@ -277,7 +278,7 @@
      </div>';
     }
 
-    function index_charts(){
+    public function index_charts(){
       echo'<div class="row">
       <div class="col-12 col-sm-12 col-lg-4">
         <div class="card">
@@ -318,7 +319,7 @@
      </div>';
     }
 
-    function index_assignTaskTable(){
+    public function index_assignTaskTable(){
       echo'<div class="row">
       <div class="col-12">
         <div class="card">
@@ -398,7 +399,7 @@
      </div>';
     }
 
-    function index_stpp(){
+    public function index_stpp(){
       echo'<div class="row">
       <div class="col-md-6 col-lg-12 col-xl-6">
         <!-- Support tickets -->
@@ -464,7 +465,7 @@
      </div>';
     }
 
-    function basic_data_table(){
+    public function basic_data_table(){
       echo'<div class="row">
       <div class="col-12">
         <div class="card">
@@ -521,7 +522,7 @@
      </div>';
     }
 
-    function multi_select_table(){
+    public function multi_select_table(){
       echo'<div class="row">
       <div class="col-12">
         <div class="card">
@@ -584,7 +585,7 @@
      </div>';
     }
 
-    function clear_table(){
+    public function clear_table(){
       echo'<div class="row">
       <div class="col-12">
         <div class="card">
@@ -622,7 +623,7 @@
      </div>';
     }
 
-    function import_form(){
+    public function import_form(){
       echo'<form class="form-horizontal" action="" method="post" name="frmCSVImport" id="frmCSVImport" 
       enctype="multipart/form-data">
       <div class="input-row">
@@ -638,7 +639,7 @@
      </form>';
     }
 
-    function cities(){
+    public function cities(){
       echo'<div class="row">
       <div class="col-12 col-md-6 col-lg-5">
         <div class="card card-secondary">
@@ -737,7 +738,7 @@
       </div>';
     }
 
-    function add_restaurant($q){
+    public function add_restaurant($q){
       echo'<div class="row">
       <div class="col-12 col-md-6 col-lg-12">
         <div class="card card-secondary">
@@ -838,7 +839,7 @@
       </div>';
     }
 
-    function sellect_city(){
+    public function sellect_city(){
       echo'
       <div class="col-12 col-md-6 col-lg-4">
       <div class="card card-secondary">
@@ -865,7 +866,7 @@
      </div>';
     }
 
-    function all_restaurant(){
+    public function all_restaurant(){
       echo' <div class="row">
       <div class="col-12 col-md-6 col-lg-12">
         <div class="card card-success">
@@ -944,7 +945,7 @@
       </div>';
     }
 
-    function all_paticular_user($userlevel, $title){
+    public function all_paticular_user($userlevel, $title){
       echo' <div class="row">
       <div class="col-12 col-md-6 col-lg-12">
         <div class="card card-success">
@@ -1013,7 +1014,7 @@
       </div>';
     }
 
-    function all_paticular_customers($title){
+    public function all_paticular_customers($title){
       echo' <div class="row">
       <div class="col-12 col-md-6 col-lg-12">
         <div class="card card-success">
@@ -1053,7 +1054,7 @@
                      </td>
                   <td>'.$res_city.'</td>
                   <td><a href="#">
-                  <img alt="'.$user_name.'" src="'.$user_picture.'" class="rounded-circle" width="35"
+                  <img alt="pic" src="'.$user_picture.'" class="rounded-circle" width="35"
                     data-toggle="title" title="">
                   <span class="d-inline-block ml-1">'.$user_name.'</span>
                 </a></td>
@@ -1082,7 +1083,7 @@
       </div>';
     }
 
-    function add_user(){
+    public function add_user(){
        
       if(isset($_GET['succ'])){
         $this->alert2('New user created successfully');
@@ -1168,7 +1169,7 @@
       </div>';
     }
 
-    function add_meal($city_id, $res_id){
+    public function add_meal($city_id, $res_id){
       echo'<div class="row">
       <div class="col-12">
         <div class="card">
@@ -1257,7 +1258,7 @@
      </div>';
     }
      
-    function res_stats_mini($city_id, $res_id){
+    public function res_stats_mini($city_id, $res_id){
     
       if ($this->results = $this->view_dbs->get_single_restaurant($city_id, $res_id)){
        foreach ($this->results as $row) {
@@ -1342,7 +1343,7 @@
      </div>';
     }
 
-    function meal_category_modal($city_id, $res_id){
+    public function meal_category_modal($city_id, $res_id){
       echo' <!-- basic modal -->
       <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -1383,7 +1384,7 @@
       <!-- Modal with form -->';
     }
 
-    function food_meals($city_id, $res_id){
+    public function food_meals($city_id, $res_id){
       echo'<div class="row">
       <div class="col-12">
         <div class="card">

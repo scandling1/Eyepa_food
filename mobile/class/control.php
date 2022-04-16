@@ -41,6 +41,21 @@
              return $stmt;
         }
 
+         // GET RESTAURANTS
+         public function searchRestaurants(){
+            $sqlQuery = "SELECT * FROM ".$this->dbt_restaurant."
+                          WHERE city_id = ? AND res_name LIKE ?";
+
+            $stmt = $this->conn->prepare($sqlQuery);
+            $this->res_name = "%".$this->res_name."%";
+
+            $stmt->bindParam(1, $this->city_id);
+            $stmt->bindParam(2, $this->res_name);
+
+            $stmt->execute();
+             return $stmt;
+        }
+
         // GET ALL MEALS FORM ONE RESTAURANT
         public function getAllMeals(){
             $sqlQuery = "SELECT * FROM ".$this->dbt_meals."

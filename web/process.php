@@ -387,7 +387,7 @@ class Process
      }
 
      if(isset($_FILES['image'])){
-         $allowed = array('png', 'jpg');
+         $allowed = array('png', 'jpg', 'jpeg');
              $extension1 = pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
                  if(!in_array(strtolower($extension1), $allowed)){
                       echo '{"status":"error1"}';
